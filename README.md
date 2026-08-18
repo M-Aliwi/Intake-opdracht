@@ -1,6 +1,8 @@
 # Soepfabriek — Verkoopapplicatie
 
-Frontend voor de Soepfabriek mini-app (prove van bekwaamheid). React + Vite, gekoppeld aan Xano.
+Frontend voor de Soepfabriek mini-app (proeve van bekwaamheid). React + Vite, gekoppeld aan Xano.
+
+**Broncode:** [github.com/M-Aliwi/Intake-opdracht](https://github.com/M-Aliwi/Intake-opdracht)
 
 ## Frontendtechniek
 
@@ -153,13 +155,13 @@ De UI gebruikt slugs (`concept`, `in_behandeling`, …); naar Xano wordt gemapt 
 ## Oplevering checklist
 
 - [x] Frontend URL of lokale startinstructies (hierboven)
-- [ ] GitHub / broncode
+- [x] GitHub / broncode — https://github.com/M-Aliwi/Intake-opdracht
 - [ ] Xano-toegang of screenshots datamodel + endpoints
-- [ ] Deze README ingevuld (onderstaande secties)
+- [x] Deze README ingevuld (onderstaande secties)
 
 ---
 
-## Reflectie (vul zelf in)
+## Reflectie
 
 ### Tijdsbesteding
 
@@ -167,26 +169,42 @@ _Geschat: ___ uur_
 
 ### Volledig af
 
-- _bijv. authenticatie, organisaties CRUD, …_
+- Authenticatie: register, login, logout, protected routes, token in `localStorage`, sessie via `GET /auth/me`
+- Organisaties, contactpersonen, artikelen en orders CRUD in de frontend
+- Orderregels + Nederlandse statusmapping (`in_behandeling` ↔ `In behandeling`)
+- Koppeling met meerdere Xano API-groepen via `.env`
+- Order bewerken via `PATCH /sales_order/{id}`
 
 ### Gedeeltelijk af
 
-- _bijv. order PATCH in Xano nog toevoegen_
+- `total_amount` — frontend toont het veld; herberekening in Xano na een nieuwe orderregel is nog niet geverifieerd
+- `GET /contact_person/{id}` — ontbreekt in Xano; de app valt terug op de contactenlijst
+- `GET /v1/articles/active` — fallback naar de volledige lijst + filter
+- Server-side validatie in Xano (contact bij organisatie, min. 1 regel)
 
 ### Niet af / vastgelopen
 
-- _beschrijf wat je probeerde en wat de volgende stap is_
+- Geen deployed frontend (alleen `npm run dev`)
+- Geen Xano-screenshots of assessor-toegang in deze repo
+- Volgende stap: in Xano `total_amount` teruggeven + herberekenen, en `GET /contact_person/{id}` opnieuw publiceren
 
 ### Problemen onderzocht en opgelost
 
-- _bijv. orderstatus enum mismatch (`in_behandeling` vs `In behandeling`) — Network tab + OpenAPI + mapper_
-- _bijv. organisatiepagina crashte op `created_at` als getal — `formatDate()` uitgebreid_
+- Orderstatus `in_behandeling` vs `In behandeling` — Network tab + OpenAPI + mapper in `mappers.ts`
+- Organisatiepagina crashte op `created_at` als getal — `formatDate()` uitgebreid
+- Xano heeft aparte API-groepen i.p.v. één slug — meerdere `VITE_XANO_*_API` variabelen
+- Artikelen-API verhuisd naar `/v1/articles/...` — frontend daarop aangesloten
 
 ### AI-gebruik
 
-- **Geholpen bij:** _bijv. frontend structuur, API mapping_
-- **Aangepast/afgewezen:** _bijv. single API slug → meerdere Xano groepen_
+- **Geholpen bij:** frontendstructuur (pages, API-laag, auth), veldmapping, Xano-stappenplan en presentatiegids
+- **Aangepast/afgewezen:** één API-slug → meerdere Xano-groepen; Engelse statussen → Nederlandse enum; fallbacks waar endpoints ontbraken
 
 ### Verbeteringen met meer tijd
 
-- _bijv. PATCH endpoints afdwingen in Xano, server-side validatie, deployed frontend_
+- Frontend deployen
+- `total_amount` in Xano betrouwbaar herberekenen
+- `GET /contact_person/{id}` herstellen
+- Server-side validatie afdwingen
+- Orderregels kunnen wijzigen of verwijderen
+- Screenshots van datamodel, API-groepen en auth (401)
