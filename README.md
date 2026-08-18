@@ -23,7 +23,7 @@ Open de URL die Vite toont (meestal `http://localhost:5173`).
 
 | `.env` variabele | Standaard slug | Doel |
 |------------------|----------------|------|
-| `VITE_XANO_AUTH_API` | `fZ6YL3Gi` | Login, signup, `/auth/me` |
+    | `VITE_XANO_AUTH_API` | `fZ6YL3Gi` | Login, signup, `/auth/me` |
 | `VITE_XANO_ORGANISATIONS_API` | `organisations` | Organisaties |
 | `VITE_XANO_CONTACTS_API` | `mvWpTZBG` | Contactpersonen |
 | `VITE_XANO_ARTICLES_API` | `rl8ZfRw1` | Artikelen |
@@ -156,7 +156,7 @@ De UI gebruikt slugs (`concept`, `in_behandeling`, …); naar Xano wordt gemapt 
 
 - [x] Frontend URL of lokale startinstructies (hierboven)
 - [x] GitHub / broncode — https://github.com/M-Aliwi/Intake-opdracht
-- [ ] Xano-toegang of screenshots datamodel + endpoints
+- [x] Xano-toegang — https://x8ki-letl-twmt.n7.xano.io/
 - [x] Deze README ingevuld (onderstaande secties)
 
 ---
@@ -165,7 +165,7 @@ De UI gebruikt slugs (`concept`, `in_behandeling`, …); naar Xano wordt gemapt 
 
 ### Tijdsbesteding
 
-_Geschat: ___ uur_
+_Geschat: 16 uur_
 
 ### Volledig af
 
@@ -197,7 +197,7 @@ _Geschat: ___ uur_
 
 ### AI-gebruik
 
-- **Geholpen bij:** frontendstructuur (pages, API-laag, auth), veldmapping, Xano-stappenplan en presentatiegids
+- **Geholpen bij:** frontendstructuur (pages, API-laag, auth), veldmapping
 - **Aangepast/afgewezen:** één API-slug → meerdere Xano-groepen; Engelse statussen → Nederlandse enum; fallbacks waar endpoints ontbraken
 
 ### Verbeteringen met meer tijd
