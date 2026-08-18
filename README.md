@@ -78,8 +78,6 @@ Base URL: `https://x8ki-letl-twmt.n7.xano.io`
 | Lines | GET | `/api:lines/sales_order_lines?sales_order_id=` | Orderregels |
 | Lines | POST | `/api:lines/sales_order_line` | Regel toevoegen |
 
-OpenAPI workspace: `https://x8ki-letl-twmt.n7.xano.io/apispec:workspace:H9Zs_69j?type=json`
-
 ## Koppeling frontend ↔ Xano
 
 - REST via `fetch` in `src/api/client.ts` — geen lokale mockdata
